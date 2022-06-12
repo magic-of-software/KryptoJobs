@@ -24,6 +24,6 @@ Route::get('/postjob', function () {
 });
 Route::get('/etjob/{id}', function () {
     return view('welcome');
-});
+})->name('root');
 
 Route::resource('/job', "JobsController");
