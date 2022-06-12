@@ -18,7 +18,7 @@ function Main() {
             <Route path="/" exact component={Dashboard} />
             <Route path="/list" exact component={Dashboard} />
             <Route path="/postjob" exact component={PostJob} />
-            <Route path="/edit/:id" exact component={EditJob} />
+            <Route path="/etjob/:id" exact component={EditJob} />
         </Switch>
         </>
         </Router>

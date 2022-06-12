@@ -1,5 +1,4 @@
 import React from "react";
-import {Link} from "react-router-dom";
 import axios from "axios";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 // import Rightbar from "./Rightbar";
@@ -19,6 +18,7 @@ class EditJob extends React.Component {
         e.preventDefault();
         const id = this.props.match.params.id;
         const res = await axios.patch(`/job/${id}`, this.state);
+        console.log(res);
         if(res.data.status === 200){
             this.props.history.push("/list");
         }
@@ -26,16 +26,16 @@ class EditJob extends React.Component {
     async componentDidMount(){
         const id = this.props.match.params.id;
         const res = await axios.get(`/job/${id}/edit`);
-        this.setState({title: res.data.Job.title});
-        this.setState({type: res.data.Job.type});
-        this.setState({description: res.data.Job.description});
-        this.setState({logo: res.data.Job.logo});
+        console.log(res.data);
+        this.setState({title: res.data.job.title});
+        this.setState({type: res.data.job.type});
+        this.setState({description: res.data.job.description});
+        this.setState({logo: res.data.job.logo});
     }
 
-    render(){
+    render() {
         return(
             <div className="layout">
-
                 <div className="actionDiv">
                     <div className="Formdiv">
                         <form onSubmit={this.onUpdateJob}>

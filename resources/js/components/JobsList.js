@@ -35,16 +35,16 @@ class JobsList extends React.Component {
         if(window.location.href === window.origin + "/list"){
             return(
                 <div>
-                    {this.state.jobs.map(jobs => (
-                        <Data jobs = {jobs} key={jobs.id} deleteJob = {this.onDeleteJob}/>
+                    {this.state.jobs.map(job => (
+                        <Data job = {job} key={job.id} deleteJob = {this.onDeleteJob}/>
                     ))}
                 </div>
             )
         }
         return(
             <div>
-                {this.state.jobs.map(jobs => (
-                    <HomeData jobs = {jobs} key={jobs.id}/>
+                {this.state.jobs.map(job => (
+                    <HomeData job = {job} key={job.id}/>
                 ))}
             </div>
         )

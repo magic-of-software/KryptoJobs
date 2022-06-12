@@ -11,24 +11,24 @@ class Data extends React.Component {
         }
     }
     render(){
-        const {jobs} = this.props;
+        const {job} = this.props;
         return(
             <div className="card job">
                 <div className="cardHeader">
-                    <div className="type">{jobs.type}</div>
-                    <p className="cardTitle">{jobs.title}</p>
+                    <div className="type">{job.type}</div>
+                    <p className="cardTitle">{job.title}</p>
                     <div className="subinfo">
                         <h6>
-                            {moment(jobs.updated_at).format('LLL')}
+                            {moment(job.updated_at).format('LLL')}
                         </h6>
                         <div className="action">
-                            <p className="edit"><Link to={`/edit/${jobs.id}`}><FontAwesomeIcon icon="edit" className="icon"/>Edit</Link></p>
-                            <p className="delete" onClick={() => this.onDeleteJob(jobs.id)}><FontAwesomeIcon icon="trash-alt" className="icon"/>Delete</p>
+                            <p className="edit"><Link to={`/etjob/${job.id}`}><FontAwesomeIcon icon="edit" className="icon"/>Edit</Link></p>
+                            <p className="delete" onClick={() => this.onDeleteJob(job.id)}><FontAwesomeIcon icon="trash-alt" className="icon"/>Delete</p>
                         </div>
                     </div>
                 </div>
                 <div className="cardBody">
-                    <p className="description">{jobs.description}</p>
+                    <p className="description">{job.description}</p>
                 </div>
             </div>
         )

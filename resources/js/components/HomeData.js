@@ -6,21 +6,21 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 class HomeData extends React.Component {
 
     render(){
-        const {jobs} = this.props;
+        const {job} = this.props;
         return(
             <div className="card job">
                 <div className="cardHeader">
-                    <div className="type">{jobs.type}</div>
-                    <p className="cardTitle">{jobs.title}</p>
+                    <div className="type">{job.type}</div>
+                    <p className="cardTitle">{job.title}</p>
                     <div className="subinfo">
                         <h6>
-                            {moment(jobs.updated_at).format('LLL')}
+                            {moment(job.updated_at).format('LLL')}
                         </h6>
                         <div></div>
                     </div>
                 </div>
                 <div className="cardBody">
-                    <p className="description">{jobs.description}</p>
+                    <p className="description">{job.description}</p>
                 </div>
             </div>
         )

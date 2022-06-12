@@ -103210,30 +103210,30 @@ var Data = /*#__PURE__*/function (_React$Component) {
     value: function render() {
       var _this2 = this;
 
-      var jobs = this.props.jobs;
+      var job = this.props.job;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card job"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "cardHeader"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "type"
-      }, jobs.type), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, job.type), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "cardTitle"
-      }, jobs.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, job.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "subinfo"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, moment__WEBPACK_IMPORTED_MODULE_1___default()(jobs.updated_at).format('LLL')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, moment__WEBPACK_IMPORTED_MODULE_1___default()(job.updated_at).format('LLL')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "action"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "edit"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Link"], {
-        to: "/edit/".concat(jobs.id)
+        to: "/etjob/".concat(job.id)
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
         icon: "edit",
         className: "icon"
       }), "Edit")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "delete",
         onClick: function onClick() {
-          return _this2.onDeleteJob(jobs.id);
+          return _this2.onDeleteJob(job.id);
         }
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
         icon: "trash-alt",
@@ -103242,7 +103242,7 @@ var Data = /*#__PURE__*/function (_React$Component) {
         className: "cardBody"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "description"
-      }, jobs.description)));
+      }, job.description)));
     }
   }]);
 
@@ -103266,10 +103266,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
@@ -103299,7 +103298,6 @@ function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Re
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
 
 
 
@@ -103342,16 +103340,17 @@ var EditJob = /*#__PURE__*/function (_React$Component) {
                 e.preventDefault();
                 id = _this.props.match.params.id;
                 _context.next = 4;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.patch("/job/".concat(id), _this.state);
+                return axios__WEBPACK_IMPORTED_MODULE_2___default.a.patch("/job/".concat(id), _this.state);
 
               case 4:
                 res = _context.sent;
+                console.log(res);
 
                 if (res.data.status === 200) {
                   _this.props.history.push("/list");
                 }
 
-              case 6:
+              case 7:
               case "end":
                 return _context.stop();
             }
@@ -103378,24 +103377,25 @@ var EditJob = /*#__PURE__*/function (_React$Component) {
               case 0:
                 id = this.props.match.params.id;
                 _context2.next = 3;
-                return axios__WEBPACK_IMPORTED_MODULE_3___default.a.get("/job/".concat(id, "/edit"));
+                return axios__WEBPACK_IMPORTED_MODULE_2___default.a.get("/job/".concat(id, "/edit"));
 
               case 3:
                 res = _context2.sent;
+                console.log(res.data);
                 this.setState({
-                  title: res.data.Job.title
+                  title: res.data.job.title
                 });
                 this.setState({
-                  type: res.data.Job.type
+                  type: res.data.job.type
                 });
                 this.setState({
-                  description: res.data.Job.description
+                  description: res.data.job.description
                 });
                 this.setState({
-                  logo: res.data.Job.logo
+                  logo: res.data.job.logo
                 });
 
-              case 8:
+              case 9:
               case "end":
                 return _context2.stop();
             }
@@ -103463,7 +103463,7 @@ var EditJob = /*#__PURE__*/function (_React$Component) {
       })), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("button", {
         type: "submit",
         className: "primary"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_4__["FontAwesomeIcon"], {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_fortawesome_react_fontawesome__WEBPACK_IMPORTED_MODULE_3__["FontAwesomeIcon"], {
         icon: "plus",
         className: "icon"
       }), "Edit Job")))));
@@ -103600,22 +103600,22 @@ var HomeData = /*#__PURE__*/function (_React$Component) {
   _createClass(HomeData, [{
     key: "render",
     value: function render() {
-      var jobs = this.props.jobs;
+      var job = this.props.job;
       return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "card job"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "cardHeader"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "type"
-      }, jobs.type), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
+      }, job.type), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "cardTitle"
-      }, jobs.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, job.title), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "subinfo"
-      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, moment__WEBPACK_IMPORTED_MODULE_1___default()(jobs.updated_at).format('LLL')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h6", null, moment__WEBPACK_IMPORTED_MODULE_1___default()(job.updated_at).format('LLL')), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "cardBody"
       }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", {
         className: "description"
-      }, jobs.description)));
+      }, job.description)));
     }
   }]);
 
@@ -103779,19 +103779,19 @@ var JobsList = /*#__PURE__*/function (_React$Component) {
       }
 
       if (window.location.href === window.origin + "/list") {
-        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, this.state.jobs.map(function (jobs) {
+        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, this.state.jobs.map(function (job) {
           return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_Data__WEBPACK_IMPORTED_MODULE_3__["default"], {
-            jobs: jobs,
-            key: jobs.id,
+            job: job,
+            key: job.id,
             deleteJob: _this2.onDeleteJob
           });
         }));
       }
 
-      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, this.state.jobs.map(function (jobs) {
+      return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", null, this.state.jobs.map(function (job) {
         return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_HomeData__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          jobs: jobs,
-          key: jobs.id
+          job: job,
+          key: job.id
         });
       }));
     }
@@ -103851,7 +103851,7 @@ function Main() {
     exact: true,
     component: _PostJob__WEBPACK_IMPORTED_MODULE_5__["default"]
   }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__["Route"], {
-    path: "/edit/:id",
+    path: "/etjob/:id",
     exact: true,
     component: _EditJob__WEBPACK_IMPORTED_MODULE_6__["default"]
   }))));
